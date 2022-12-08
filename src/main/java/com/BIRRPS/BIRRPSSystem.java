@@ -26,5 +26,6 @@ public class BIRRPSSystem {
 
 	public void rentBike(){
 		System.out.println("Enter the specs of the bike you want to rent:");
+		//User enters their spec but
 	}
 }

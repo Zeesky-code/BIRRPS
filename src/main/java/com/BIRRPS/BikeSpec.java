@@ -1,80 +1,41 @@
 package com.BIRRPS;
 
-public class BikeSpec implements Bike {
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Iterator;
 
-	private String id;
-	private double price;
-	private String parkingSpot;
-	private Type type;
-	private Model model;
-	private Color color;
+public class BikeSpec {
+	private Map properties;
 
-
-	public BikeSpec(String id, double price, String parkingSpot, Type type, Model model, Color color) {
-		this.id = id;
-		this.price = price;
-		this.parkingSpot = parkingSpot;
-		this.type = type;
-		this.model = model;
-		this.color = color;
+	public BikeSpec( Map properties) {
+		if (properties == null){
+			this.properties = new HashMap();
+		}else{
+			this.properties = new HashMap(properties);
+		}
 	}
 
-	public String getId() {
-		return id;
+	public Object getProperty(String propertyName){
+		return properties.get(propertyName);
+	}
+	public Map getProperties() {
+		return properties;
 	}
 
-	public void setId(String id) {
-		this.id = id;
+	// searching for bike by iterating through the properties
+	public boolean search(BikeSpec searchSpec){
+		for (Iterator i = searchSpec.getProperties().keySet().iterator();
+			 i.hasNext(); ){
+			String propertyName = (String)i.next();
+			if (!properties.get(propertyName).equals(searchSpec.getProperty(propertyName))){
+						return false;
+			}
+		}
+		return true;
+
+		}
+
 	}
 
-	public double getPrice() {
-		return price;
-	}
 
-	public void setPrice(double price) {
-		this.price = price;
-	}
 
-	public String getParkingSpot() {
-		return parkingSpot;
-	}
-
-	public void setParkingSpot(String parkingSpot) {
-		this.parkingSpot = parkingSpot;
-	}
-
-	public Type getType() {
-		return type;
-	}
-
-	public void setType(Type type) {
-		this.type = type;
-	}
-
-	public Model getModel() {
-		return model;
-	}
-
-	public void setModel(Model model) {
-		this.model = model;
-	}
-
-	public Color getColor() {
-		return color;
-	}
-
-	public void setColor(Color color) {
-		this.color = color;
-	}
-
-	public void getInFo() {
-		System.out.println("** Bikes **");
-		System.out.println(
-				"Color: " + getColor() +
-				"\nType: " + getType() +
-				"\nModel: " + getModel() +
-				"\nPrice: $" + getPrice()
-
-		);
-	}
-}
