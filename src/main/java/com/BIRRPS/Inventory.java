@@ -13,7 +13,7 @@ public class Inventory {
 	}
 
 	public void addBike(Bike... bikes){
-		for(Object bike:bikes){
+		for(Bike bike:bikes){
 			BikeList.add(bike);
 		}
 	}

@@ -1,10 +1,10 @@
 package com.BIRRPS;
 
 public class Bike {
-	private String id;
-	private double price;
-	private String parkingSpot;
-	private BikeSpec spec;
+	String id;
+	double price;
+	String parkingSpot;
+	BikeSpec spec;
 
 	public Bike(String id, double price, String parkingSpot, BikeSpec spec) {
 		this.id = id;
@@ -12,38 +12,20 @@ public class Bike {
 		this.parkingSpot = parkingSpot;
 		this.spec = spec;
 	}
+	public String getId() {
+		return id;
+	}
 
 	public double getPrice() {
 		return price;
 	}
 
-	public void setPrice(double price) {
-		this.price = price;
+	public void setPrice(double newPrice) {
+		this.price = newPrice;
 	}
 
-
-	public String getParkingSpot() {
-		return parkingSpot;
-	}
-
-	public void setParkingSpot(String parkingSpot) {
-		this.parkingSpot = parkingSpot;
-	}
-
-	public BikeSpec getSpec(){
+	public BikeSpec getSpec() {
 		return spec;
 	}
 
-
-
-	public void getInFo() {
-		System.out.println("** Bikes **");
-		System.out.println(
-				"Color: " + spec.getProperty("Type") +
-						"\nType: " + spec.getProperty("Model") +
-						"\nModel: " + spec.getProperty("Color") +
-						"\nPrice: $" + getPrice()
-
-		);
-	}
 }

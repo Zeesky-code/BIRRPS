@@ -15,8 +15,12 @@ public class App
         store.initializeInventory();
 
         BikeSystem.welcome();
-        User newUser = new User("John", "Doe", "5340407341");
+        //user would select their choice of operation, but we'll select 1.
+        System.out.println("--------------------------------------------------------------------------");
+        System.out.println("You have chosen to rent a bike.");
 
+
+        User newUser = new User("John", "Doe", "5340407341");
 
     }
 }
