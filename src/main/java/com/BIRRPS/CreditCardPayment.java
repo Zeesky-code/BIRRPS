@@ -16,7 +16,7 @@ public class CreditCardPayment extends Payment {
 		StringBuilder builder= new StringBuilder(this.cardNumber);
 		builder.replace(15,builder.length(),"****");
 		System.out.println(
-				"The payment of Amount: £"+ this.amount
+				"The payment of Amount: $"+ this.amount
 						+ "\nby the card          : " + builder
 						+ "\nwith the expiry date : " + this.expiryDate
 						+ "\nby the card holder   : " + this.name

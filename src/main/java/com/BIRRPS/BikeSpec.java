@@ -8,11 +8,7 @@ public class BikeSpec {
 	private Map properties;
 
 	public BikeSpec( Map properties) {
-		if (properties == null){
-			this.properties = new HashMap();
-		}else{
-			this.properties = new HashMap(properties);
-		}
+		this.properties = new HashMap(properties);
 	}
 
 	public Object getProperty(String propertyName){
@@ -23,7 +19,7 @@ public class BikeSpec {
 	}
 
 	// searching for bike by iterating through the properties
-	public boolean search(BikeSpec searchSpec){
+	public boolean matches(BikeSpec searchSpec){
 		for (Iterator i = searchSpec.getProperties().keySet().iterator();
 			 i.hasNext(); ){
 			String propertyName = (String)i.next();
@@ -31,8 +27,8 @@ public class BikeSpec {
 						return false;
 			}
 		}
-		return true;
 
+		return true;
 		}
 
 	}

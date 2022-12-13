@@ -18,8 +18,7 @@ public class App
         //user would select their choice of operation, but we'll select 1.
         System.out.println("--------------------------------------------------------------------------");
         System.out.println("You have chosen to rent a bike.");
-
-
+        BikeSystem.rentBike();
         User newUser = new User("John", "Doe", "5340407341");
 
     }

@@ -1,9 +1,6 @@
 package com.BIRRPS;
 
-import java.util.LinkedList;
-import java.util.List;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 public class Inventory {
 	private List BikeList;
@@ -68,9 +65,9 @@ public class Inventory {
 
 		//spec for bike 7
 		Map bike7Properties = new HashMap();
-		bike1Properties.put("Type", Type.TOURING);
-		bike1Properties.put("Model", Model.COLNAGO);
-		bike1Properties.put("Color", Color.GREEN);
+		bike7Properties.put("Type", Type.TOURING);
+		bike7Properties.put("Model", Model.COLNAGO);
+		bike7Properties.put("Color", Color.GREEN);
 
 		Bike bike7 = new Bike("7", 9000, "A7",new BikeSpec(bike7Properties));
 
@@ -92,5 +89,15 @@ public class Inventory {
 
 		addBike(bike1, bike2, bike3 , bike4, bike5, bike6, bike7, bike8, bike9);
 	}
+	public List search(BikeSpec searchSpec) {
+		List matchingBikes = new LinkedList();
+		for (Iterator i = BikeList.iterator(); i.hasNext(); ) {
+			Bike bike = (Bike)i.next();
+			if (bike.getSpec().matches(searchSpec))
+				matchingBikes.add(bike);
+		}
+		return matchingBikes;
+	}
+
 
 }

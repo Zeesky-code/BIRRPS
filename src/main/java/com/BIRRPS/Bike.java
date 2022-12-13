@@ -28,4 +28,15 @@ public class Bike {
 		return spec;
 	}
 
+	public void getInFo() {
+		System.out.println(
+
+				"Model       : " + this.spec.getProperty("Model") +
+				"\nColor       : " + this.spec.getProperty("Color") +
+				"\nType        : " + this.spec.getProperty("Type") +
+				"\nPrice       : $" + this.price
+
+		);
+	}
+
 }

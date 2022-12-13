@@ -1,12 +1,16 @@
 package com.BIRRPS;
 
-import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
 public class BIRRPSSystem {
+	Inventory store = new Inventory();
+
 	public void welcome(){
+
+		store.initializeInventory();
 		System.out.println(
 				"--------------------------------------------------------------------------" +
 				"\n-                             Welcome to BIRRPS                          -" +
@@ -18,7 +22,7 @@ public class BIRRPSSystem {
 				"\n2: Rent a Bike" +
 				"\n3: Turn In Your Bike For a Repair");
 		System.out.println("--------------------------------------------------------------------------");
-		System.out.println("\nPlease select the operation you want to perform.");
+		System.out.println("Please select the operation you want to perform.");
 		//The User selects their choice but since we are putting all inputs as a static,
 		// we just chose to pass 2 for buying transactions
 
@@ -28,18 +32,31 @@ public class BIRRPSSystem {
 	}
 	public void rentBike(){
 		System.out.println("Enter the specs of the bike you want to rent:");
+		System.out.println("--------------------------------------------------------------------------");
 		//User enters their spec, but we'll add a static choice.
 		Map userBike = new HashMap();
-		userBike.put("Model", Model.CERVELO);
+		userBike.put("Model", Model.CONNONDALE);
 		userBike.put("Color", Color.YELLOW);
+		userBike.put("Type", Type.MOUNTAIN);
 
 		BikeSpec userSpec = new BikeSpec(userBike);
+		List bikeResult = searchBike(userSpec);
+		System.out.println("These are the available bikes that match your search:");
+		int count =0;
+		for (Iterator i = bikeResult.iterator(); i.hasNext(); ) {
+			count++;
+			Bike bike = (Bike)i.next();
+
+			System.out.println("----------------------------Bike "+count+" ---------------------------------------");
+			bike.getInFo();
+		}
 	}
 	public void repairBike(){
 
 	}
 	public List searchBike(BikeSpec specBike){
-		List matchingBikes  = new ArrayList();
+		List matchingBikes  = store.search(specBike);
+
 		return matchingBikes;
 	}
 	public void makePayment(double carAmount){
