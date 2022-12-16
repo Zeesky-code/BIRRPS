@@ -1,9 +1,6 @@
 package com.BIRRPS;
 
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class BIRRPSSystem {
 	Inventory store = new Inventory();
@@ -30,7 +27,7 @@ public class BIRRPSSystem {
 	}
 	public void buyBike(){
 	}
-	public void rentBike(){
+	public Bike rentBike(){
 		System.out.println("Enter the specs of the bike you want to rent:");
 		System.out.println("--------------------------------------------------------------------------");
 		//User enters their spec, but we'll add a static choice.
@@ -40,26 +37,32 @@ public class BIRRPSSystem {
 		userBike.put("Type", Type.MOUNTAIN);
 
 		BikeSpec userSpec = new BikeSpec(userBike);
-		List bikeResult = searchBike(userSpec);
-		System.out.println("These are the available bikes that match your search:");
+		Bike foundBike = (Bike) searchBike(userSpec).get(0);
+		System.out.println("Would you like to rent this bike?");
+		System.out.println("--------------------------------------------------------------------------");
+		System.out.println("You have chosen to rent a bike.");
+		return foundBike;
+
+	}
+	public void repairBike(){
+
+	}
+	public ArrayList searchBike(BikeSpec specBike){
+		ArrayList matchingBikes  = store.search(specBike);
+
+		System.out.println("These is the available bike that matches your search:");
 		int count =0;
-		for (Iterator i = bikeResult.iterator(); i.hasNext(); ) {
+		for (Iterator i = matchingBikes.iterator(); i.hasNext(); ) {
 			count++;
 			Bike bike = (Bike)i.next();
 
 			System.out.println("----------------------------Bike "+count+" ---------------------------------------");
 			bike.getInFo();
 		}
-	}
-	public void repairBike(){
-
-	}
-	public List searchBike(BikeSpec specBike){
-		List matchingBikes  = store.search(specBike);
-
 		return matchingBikes;
 	}
 	public void makePayment(double carAmount){
+
 		System.out.println("--------------------------------------------------------------------------");
 		System.out.println("Select a payment method from the following options:"+
 				"\n 1. Cash Payment"+
@@ -69,6 +72,8 @@ public class BIRRPSSystem {
 				"\nPlease enter your credit card details:");
 		System.out.println("--------------------------------------------------------------------------");
 		//user enters their details but for now, we use static data.
-		Payment userPayment = new CreditCardPayment(carAmount,"John Doe", "12/29","1234532345");
+		System.out.println("Thanks for entering your card details.");
+		Payment userPayment = new CreditCardPayment(carAmount,"John Doe", "12/29","123453234596346");
+		userPayment.paymentDetails();
 	}
 }

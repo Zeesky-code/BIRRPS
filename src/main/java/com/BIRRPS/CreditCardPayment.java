@@ -12,7 +12,7 @@ public class CreditCardPayment extends Payment {
 		this.cardNumber = cardNumber;
 	}
 	public void paymentDetails() {
-		System.out.println("-----------------------PAYMENT WITH CREDIT CARD-----------------------");
+		System.out.println("-------------------------PAYMENT WITH CREDIT CARD------------------------");
 		StringBuilder builder= new StringBuilder(this.cardNumber);
 		builder.replace(15,builder.length(),"****");
 		System.out.println(

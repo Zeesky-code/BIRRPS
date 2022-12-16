@@ -3,10 +3,10 @@ package com.BIRRPS;
 import java.util.*;
 
 public class Inventory {
-	private List BikeList;
+	private ArrayList BikeList;
 
 	public Inventory() {
-		BikeList = new LinkedList();
+		BikeList = new ArrayList();
 	}
 
 	public void addBike(Bike... bikes){
@@ -89,8 +89,8 @@ public class Inventory {
 
 		addBike(bike1, bike2, bike3 , bike4, bike5, bike6, bike7, bike8, bike9);
 	}
-	public List search(BikeSpec searchSpec) {
-		List matchingBikes = new LinkedList();
+	public ArrayList search(BikeSpec searchSpec) {
+		ArrayList matchingBikes = new ArrayList();
 		for (Iterator i = BikeList.iterator(); i.hasNext(); ) {
 			Bike bike = (Bike)i.next();
 			if (bike.getSpec().matches(searchSpec))
