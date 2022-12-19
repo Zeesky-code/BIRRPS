@@ -5,6 +5,8 @@ public class Bike {
 	double price;
 	String parkingSpot;
 	BikeSpec spec;
+	Parts parts;
+
 
 	public Bike(String id, double price, String parkingSpot, BikeSpec spec) {
 		this.id = id;
@@ -28,6 +30,16 @@ public class Bike {
 		return spec;
 	}
 
+	public String getParkingSpot() {
+		return parkingSpot;
+	}
+	public Parts getParts() {
+		return parts;
+	}
+
+	public void setParts(Parts parts) {
+		this.parts = parts;
+	}
 	public void getInFo() {
 		System.out.println(
 

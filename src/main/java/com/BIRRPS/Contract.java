@@ -16,13 +16,10 @@ public class Contract {
 
 			System.out.println("BUYER");
 
-			StringBuilder id_builder =new StringBuilder(bike.getId());
-			id_builder.replace(1,id_builder.length(),"*******");//465462134455
 
 			System.out.println(
 
 					"NAME         : " + user.getFirstName()+ " " + user.getLastName()
-							+"\nID Number     :" + id_builder
 							+"\nPhone Number : " + user.getPhoneNumber());
 			System.out.println("----------------------------------------------------------------------------");
 			System.out.println("SELLER: BIRRPS");
@@ -67,14 +64,12 @@ public class Contract {
 			System.out.println("----------------------------------------------------------------------------");
 
 
-
-
 			System.out.println("SIGNATURES:");
 			System.out.println("" +
 					"Buyer's Signature ___(Electronic Signature)__ Date "+date+"\n" +
 					"Seller's Signature ___(Electronic Signature)__ Date "+date+"\n");
 
-			System.out.println("*********************************************************************");
+			System.out.println("--------------------------------------------------------------------------");
 
 	}
 }

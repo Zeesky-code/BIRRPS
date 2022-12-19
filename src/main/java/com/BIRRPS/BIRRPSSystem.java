@@ -25,7 +25,21 @@ public class BIRRPSSystem {
 
 
 	}
-	public void buyBike(){
+	public Bike buyBike(){
+		System.out.println("Enter the specs of the bike you want to buy:");
+		System.out.println("--------------------------------------------------------------------------");
+		//User enters their spec, but we'll add a static choice.
+		Map userBike = new HashMap();
+		userBike.put("Model", Model.BIANCHI);
+		userBike.put("Color", Color.BLACK);
+		userBike.put("Type", Type.ELECTRIC);
+
+		BikeSpec userSpec = new BikeSpec(userBike);
+		Bike foundBike = (Bike) searchBike(userSpec).get(0);
+		System.out.println("Would you like to buy this bike?");
+		System.out.println("--------------------------------------------------------------------------");
+		System.out.println("You have chosen to buy a bike.");
+		return foundBike;
 	}
 	public Bike rentBike(){
 		System.out.println("Enter the specs of the bike you want to rent:");
@@ -44,8 +58,32 @@ public class BIRRPSSystem {
 		return foundBike;
 
 	}
-	public void repairBike(){
+	public Bike repairBike(){
+		System.out.println("Enter the specs of the bike you want to repair:");
+		System.out.println("--------------------------------------------------------------------------");
 
+		//User enters their spec, but we'll add a static choice.
+		Map userBike = new HashMap();
+		userBike.put("Model", Model.CONNONDALE);
+		userBike.put("Color", Color.YELLOW);
+		userBike.put("Type", Type.MOUNTAIN);
+		BikeSpec userSpec = new BikeSpec(userBike);
+		System.out.println("Enter the part of the bike to be repaired:");
+
+		//User enters the part, but we'll add a static choice.
+		Parts toRepair = Parts.BRAKES;
+
+		System.out.println("Please enter the location of the bike for pickup:");
+
+		//User enters the address, but we'll add a static choice.
+		String address = "Random address";
+
+		Double price = 4500.50;
+
+		Bike repairBike = new Bike("repair", price, address,userSpec);
+		repairBike.setParts(toRepair);
+
+		return repairBike;
 	}
 	public ArrayList searchBike(BikeSpec specBike){
 		ArrayList matchingBikes  = store.search(specBike);

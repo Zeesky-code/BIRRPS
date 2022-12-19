@@ -14,6 +14,7 @@ public class App
         Inventory store = new Inventory();
         store.initializeInventory();
 
+        //Load the System
         BikeSystem.welcome();
 
         //user would select their choice of operation, but we'll select 1.
@@ -30,6 +31,13 @@ public class App
         Contract contract = new Contract(newUser, rentBike);
         contract.createContract();
 
+        System.out.println("Please make sure to take the paper that contains parking spot info: " + rentBike.getParkingSpot()+
+                " and keys from the box below... ");
+        System.out.println("Thank you for choosing us ... see you again soon...");
+
 
     }
+
+
+
 }
