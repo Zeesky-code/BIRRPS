@@ -1,25 +1,17 @@
 package com.BIRRPS;
 
 public enum Parts {
-	FRAME, SADDLE, HEADSET, FORK, HANDLEBARS, BRAKES, WHEELS;
+	BRAKES, FORK, FRAME, HANDLEBARS, HEADSET, SADDLE, WHEELS;
+
 	public String toString() {
-		switch (this) {
-			case FRAME:
-				return "Frame";
-			case SADDLE:
-				return "Saddle";
-			case HEADSET:
-				return "Headset";
-			case FORK:
-				return "Fork";
-			case HANDLEBARS:
-				return "Handlebars";
-			case BRAKES:
-				return "Brakes";
-			case WHEELS:
-				return "Wheels";
-			default:
-				return "Unspecified";
-		}
+		return switch (this) {
+			case FRAME -> "Frame";
+			case SADDLE -> "Saddle";
+			case HEADSET -> "Headset";
+			case FORK -> "Fork";
+			case HANDLEBARS -> "Handlebars";
+			case BRAKES -> "Brakes";
+			case WHEELS -> "Wheels";
+		};
 	}
 }

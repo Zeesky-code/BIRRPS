@@ -19,8 +19,8 @@ public class Contract {
 
 			System.out.println(
 
-					"NAME         : " + user.getFirstName()+ " " + user.getLastName()
-							+"\nPhone Number : " + user.getPhoneNumber());
+					"NAME         : " + user.first_name()+ " " + user.last_name()
+							+"\nPhone Number : " + user.phone_number());
 			System.out.println("----------------------------------------------------------------------------");
 			System.out.println("SELLER: BIRRPS");
 			System.out.println("----------------------------------------------------------------------------");
@@ -31,7 +31,7 @@ public class Contract {
 			bike.getInFo();
 
 			System.out.println("----------------------------------------------------------------------------");
-			System.out.println("PAYMENT INFO $"+ bike.getPrice());
+			System.out.println("PAYMENT INFO $"+ bike.price());
 			System.out.println("The Buyer will pay the Seller the purchase price in full by cash," +
 					" credit card, or by Exchange with another bike if agreed upon by both parties.");
 
@@ -42,7 +42,7 @@ public class Contract {
 			System.out.println("----------------------------------------------------------------------------");
 
 			System.out.println("HOLDING DEPOSIT:");
-			System.out.println("The Seller acknowledges that a holding deposit of $"+bike.getPrice()+" (amount) was received from\n" +
+			System.out.println("The Seller acknowledges that a holding deposit of $"+bike.price()+" (amount) was received from\n" +
 					"the Buyer on "+date);
 			System.out.println("----------------------------------------------------------------------------");
 
@@ -65,7 +65,7 @@ public class Contract {
 
 
 			System.out.println("SIGNATURES:");
-			System.out.println("" +
+			System.out.println(
 					"Buyer's Signature ___(Electronic Signature)__ Date "+date+"\n" +
 					"Seller's Signature ___(Electronic Signature)__ Date "+date+"\n");
 

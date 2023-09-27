@@ -1,25 +1,17 @@
 package com.BIRRPS;
 
-public enum Model{
-	RALEIGH, CONNONDALE, KONA, CERVELO, COLNAGO, BIANCHI;
+public enum Model {
+	BIANCHI, CERVELO, COLNAGO, CONNONDALE, KONA, RALEIGH;
 
 	public String toString() {
-		switch (this){
-			case RALEIGH:
-				return "Raleigh";
-			case CONNONDALE:
-				return "Connondale";
-			case KONA:
-				return "Kona";
-			case CERVELO:
-				return "Cervelo";
-			case COLNAGO:
-				return "Colnago";
-			case BIANCHI:
-				return "Bianchi";
-			default:
-				return "Unspecified";
-		}
+		return switch (this) {
+			case RALEIGH -> "Raleigh";
+			case CONNONDALE -> "Connondale";
+			case KONA -> "Kona";
+			case CERVELO -> "Cervelo";
+			case COLNAGO -> "Colnago";
+			case BIANCHI -> "Bianchi";
+		};
 
 	}
 }

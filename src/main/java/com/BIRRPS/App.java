@@ -22,7 +22,7 @@ public class App
         System.out.println("You have chosen to rent a bike.");
         Bike rentBike = BikeSystem.rentBike();
 
-        BikeSystem.makePayment(rentBike.getPrice());
+        BikeSystem.makePayment(rentBike.price());
 
         System.out.println("Please enter your user details");
         //user would enter their details, but we'll create a static user
@@ -31,7 +31,7 @@ public class App
         Contract contract = new Contract(newUser, rentBike);
         contract.createContract();
 
-        System.out.println("Please make sure to take the paper that contains parking spot info: " + rentBike.getParkingSpot()+
+        System.out.println("Please make sure to take the paper that contains parking spot info: " + rentBike.parkingSpot()+
                 " and keys from the box below... ");
         System.out.println("Thank you for choosing us ... see you again soon...");
 
